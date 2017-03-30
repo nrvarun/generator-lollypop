@@ -6,23 +6,15 @@ var sass              = require('gulp-sass');
 var postcss           = require('gulp-postcss');
 var uncss             = require('gulp-uncss');
 var autoprefixer      = require('autoprefixer');
-var cssnano           = require('cssnano');
-var csso              = require('gulp-csso');
-var stylefmt          = require('gulp-stylefmt');
+var rename            = require('gulp-rename');
 var imagemin          = require('gulp-imagemin');
-var htmlmin           = require('gulp-htmlmin');
+var jade              = require('gulp-jade');
+var harp              = require('harp');
 var cssmin            = require('gulp-cssmin');
 var rename            = require('gulp-rename');
-var harp              = require('harp');
+
 var reload            = browserSync.reload;
-var paths             = {
-                             html           : ['./**/*.html'],
-                             sass           : ['./css/*.scss'],
-                             javascript     : [
-                                                 './js/*.js'
-                                              ],
-                             css            : './src/css/*.css'
-                         };
+
 gulp.task('default',['sass','watch'], function(){
   gutil.log("Gulp is running");
 });
@@ -54,61 +46,42 @@ gulp.task('serve', function () {
   })
 });
 
-gulp.task('sass', function () {
-  return gulp.src('./css/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(stylefmt())
-    .pipe(gulp.dest('./dst/css'))
-    .pipe(browserSync.stream());
-});
-
-gulp.task('watch',['browserSync'],function(){
-  gulp.watch('./css/*.scss',['sass']);
-  gulp.watch('./css/*.css', browserSync.reload);
-  gulp.watch('./*.html', browserSync.reload); 
-  gulp.watch('./js/*.js',browserSync.reload); 
-});
-
-//Production Setup
-gulp.task('copy', function(){
-  gulp.src([
-            'src/**/*.html',
-            'src/**/*.js',
-            'src/**/*.jpg'
-          ])
-        .pipe(gulp.dest('dist'));
-});
-gulp.task('cssmin', function(){
-    var processors = [
-        cssnano()
-    ];
-     gulp.src('src/**/*.css')
-          .pipe(postcss(processors))
-          .pipe(csso())
-          .pipe(cssmin())
-          .pipe(rename({suffix: '.min'}))
-          .pipe(gulp.dest('dist'));
-});
+//Production Tasks
 gulp.task('imagemin', function() {
-    gulp.src('src/img/*')
+    gulp.src('src/img/*.*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/img'))
 });
 
-gulp.task('htmlmin', function() {
-  return gulp.src('src/index.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./dist'));
+//Convert .jade to .html file
+gulp.task('jade', function(){
+	gulp.src('src/*.jade')
+	.pipe(jade({
+		pretty: true
+	}))
+	.pipe(gulp.dest('dist/'));
 });
 
-gulp.task('uncss', function () {
-    return gulp.src('src/css/*.css')
-        .pipe(uncss({
-            html: ['src/index.html']
-        }))
-        .pipe(gulp.dest('./dist/css'));
+//Convert .scss file to .css
+gulp.task('sass', function () {
+  return gulp.src('./src/css/main.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cssmin())
+    .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('prod',['copy','htmlmin','cssmin','imagemin'], function(){
+gulp.task('copy_js', function(){
+	gulp.src('src/js/*.js').pipe(gulp.dest('dist/js/'))
+});
+
+gulp.task('copy_img', function(){
+	gulp.src('src/img/**/*').pipe(gulp.dest('dist/img/'))
+});
+
+gulp.task('copy_fonts', function(){
+	gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts/'))
+});
+
+gulp.task('prod',['jade','sass','imagemin','copy_fonts','copy_js'], function(){
   console.log('Production work is almost done :)');
 });
