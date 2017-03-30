@@ -6,9 +6,9 @@
   "main": "app/index.js",
   "repository": "nrvarun/generator-lollypop",
   "author": {
-    "name": "",
-    "email": "",
-    "url": "https://github.com/nrvarun"
+    "name": "Lollypop",
+    "email": "inr.varun89@gmail.com",
+    "url": "http://github.com/nrvarun"
   },
   "scripts": {
     "test": "mocha"
