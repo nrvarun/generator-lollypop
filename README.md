@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nrvarun/generator-lollypop.svg?branch=master)](https://travis-ci.org/nrvarun/generator-lollypop)
+
 Yeoman `Lollypop` generator
 =======================
 > A Yeoman generator with Jade/Pug with Gulp, SASS, Browsersync and Harp server.
