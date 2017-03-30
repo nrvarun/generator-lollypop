@@ -8,6 +8,7 @@ module.exports = yeoman.generators.Base.extend({
   //Ask for user input
   prompting: function() {
     var done = this.async();
+    
     this.prompt({
       type: 'input',
       name: 'name',
@@ -20,6 +21,7 @@ module.exports = yeoman.generators.Base.extend({
       done();
     }.bind(this));
   },
+
   //Writing Logic here
   writing: {
     //Copy the configuration files
@@ -30,16 +32,6 @@ module.exports = yeoman.generators.Base.extend({
           name: this.props.name
         }
       );
-      this.fs.copyTpl(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json'), {
-          name: this.props.name
-        }
-      );
-      this.fs.copy(
-        this.templatePath('bowerrc'),
-        this.destinationPath('.bowerrc')
-      );
     },
 
     //Copy application files
@@ -47,42 +39,57 @@ module.exports = yeoman.generators.Base.extend({
       //Server file
       this.fs.copyTpl(
         this.templatePath('_server.js'),
-        this.destinationPath('server.js'),
-        this.destinationPath('/views/index.ejs'), {
-          name: this.props.name
-        }
+        this.destinationPath('server.js')
       );
-      /////Routes
-      this.fs.copy(
-        this.templatePath('_routes/_all.js'),
-        this.destinationPath('routes/all.js'));
-
-
-      // Model
-      this.fs.copy(
-        this.templatePath('_model/_todo.js'),
-        this.destinationPath('model/todo.js'));
-
-      // Views
+      //Gulp file
       this.fs.copyTpl(
-        this.templatePath('_views/_index.ejs'),
-        this.destinationPath('/views/index.ejs'), {
-          name: this.props.name
-        }
+        this.templatePath('_gulpfile.js'),
+        this.destinationPath('gulpfile.js')
       );
-
+      //Gitignore file
+      this.fs.copyTpl(
+        this.templatePath('_.gitignore'),
+        this.destinationPath('.gitignore')
+      );
+      //README file
+      this.fs.copyTpl(
+        this.templatePath('_README.md'),
+        this.destinationPath('README.md')
+      );
       // Public/
       this.fs.copy(
-        this.templatePath('_public/_css/_app.css'),
-        this.destinationPath('public/css/app.css')
+        this.templatePath('_src/_index.jade'),
+        this.destinationPath('src/index.jade')
       );
       this.fs.copy(
-        this.templatePath('_public/_js/_app.js'),
-        this.destinationPath('public/js/app.js')
+        this.templatePath('_src/_jade/**/*.jade'),
+        this.destinationPath('src/jade')
+      );
+      // Styles
+      this.fs.copy(
+        this.templatePath('_src/_css/**/*.scss'),
+        this.destinationPath('src/css')
+      );
+      // Js/
+      this.fs.copy(
+        this.templatePath('_src/_js/**/*.js'),
+        this.destinationPath('src/js')
+      );
+      // Images/
+      this.fs.copy(
+        this.templatePath('_src/_img/**/*.*'),
+        this.destinationPath('src/img')
+      );
+      //Fonts/
+      this.fs.copy(
+        this.templatePath('_src/_fonts/**/*.*'),
+        this.destinationPath('src/fonts')
       );
     }
   },
+
   install: function() {
     this.installDependencies();
   }
+
 });

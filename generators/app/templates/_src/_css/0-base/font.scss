@@ -1,0 +1,327 @@
+@import "base-styles";
+
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('../fonts/Poppins/Poppins-Light.eot');
+  src: url('../fonts/Poppins/Poppins-Light.woff2') format('woff2'),
+       url('../fonts/Poppins/Poppins-Light.woff') format('woff'),
+       url('../fonts/Poppins/Poppins-Light.svg#Poppins-Light') format('svg'),
+  //font-weight: normal;
+ // font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('../fonts/Poppins/Poppins-Medium.eot');
+  src: url('../fonts/Poppins/Poppins-Medium.woff2') format('woff2'),
+       url('../fonts/Poppins/Poppins-Medium.woff') format('woff'),
+       url('../fonts/Poppins/Poppins-Medium.svg#Poppins-Medium') format('svg'),
+ //font-weight: normal;
+ // font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('../fonts/Poppins/Poppins-Regular.eot');
+  src: url('../fonts/Poppins/Poppins-Regular.woff2') format('woff2'),
+       url('../fonts/Poppins/Poppins-Regular.woff') format('woff'),
+       url('../fonts/Poppins/Poppins-Regular.svg#Poppins-Regular') format('svg'),
+ // font-weight: normal;
+ // font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('../fonts/Poppins/Poppins-SemiBold.eot');
+  src: url('../fonts/Poppins/Poppins-SemiBold.woff2') format('woff2'),
+       url('../fonts/Poppins/Poppins-SemiBold.woff') format('woff'),
+       url('../fonts/Poppins/Poppins-SemiBold.svg#Poppins-SemiBold') format('svg'),
+
+ // font-weight: normal;
+ // font-style: normal;
+}
+
+@font-face {
+  font-family: 'fontawesome';
+  src: url('../fonts/fontawesome-webfont.eot');
+  src: url('../fonts/fontawesome-webfont.woff2') format('woff2'),
+       url('../fonts/fontawesome-webfont.woff') format('woff'),
+       url('../fonts/fontawesome-webfont.svg#fontawesome') format('svg'),
+
+
+ // font-weight: normal;
+ // font-style: normal;
+}
+
+/*Font styles*/
+
+$p-light: 'Poppins-Light';
+$p-medium: 'Poppins-Medium';
+$p-semibold: 'Poppins-SemiBold';
+$p-regular: 'Poppins-Regular';
+
+h1, h2, h3, h4, h5, h6{
+	&.lined{
+		padding-left: 20px;
+		position: relative;
+
+		&:before{
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 85%;
+			width: 6px;
+			background: black;
+		}
+	}
+}
+
+h3.header-3{
+	font-weight: bold;
+    font-family: $p-medium;
+    font-size: 14px;
+    line-height: 26px;
+    color: $black;
+
+	&.semibold{
+		font-family: $p-semibold;
+	}
+
+	&.orange{
+		color: $orange;
+		font-family: "poppins-regular";
+		font-size: 24px;
+	}
+}
+
+h4.header-4{
+	font-family: $p-regular;
+	font-size: 20px;
+	line-height: 32px;
+	color: $black;
+}
+
+h5.header-5{
+	font-family: $p-semibold;
+	font-size: 14px;
+	line-height: 26px;
+	color: $lightblack;
+	text-transform: uppercase;
+	font-weight: bold;
+
+	&.caps{
+		text-transform: capitalize;
+	}
+}
+/*------Text styles------*/
+
+.card-company-text{
+	font-family: $p-medium;
+	font-size: 18px;
+	line-height: 30px;
+	color: $black;
+	text-transform: uppercase;
+}
+
+.card-text{
+	font-size:18px;
+	line-height: 30px;
+	font-family: "poppins";		//Replace with the respective font family
+	color: $black;
+	font-weight: bold;
+}
+
+.detail-text{
+	color: $gray-2;
+	font-family: $p-medium;
+	font-size: 12px;
+	line-height: 24px;
+}
+
+.detail-text-user{
+	color: $lightblack;
+	font-family: $p-semibold;
+	font-size: 12px;
+	line-height: 24px;
+}
+
+.card-header-text{
+	font-family: $p-medium;
+	font-size: 20px;
+	line-height: 32px;
+	color: $black;
+}
+
+.card-count-text{
+	font-family: $p-medium;
+	font-size: 20px;
+	line-height: 32px;
+	color: $gray-2;
+}
+
+.short-text{
+	font-size: 14px;
+	color: $black;
+	font-family: "poppins-medium";
+	line-height: 26px;
+
+}
+
+.tab-text{
+	font-family: $p-medium;
+	font-size: 14px;
+	line-height: 26px;
+}
+
+.header-text{
+	font-family: $p-light;
+    font-size: 24px;
+	line-height: 36px;
+    color: $gray-2;
+	text-transform: uppercase;
+}
+
+.menu-text{
+	font-size: 14px;
+	line-height: 26px;
+	font-family: $p-medium;
+	color: $gray;
+	text-transform: uppercase;
+	transition: 0.2s ease;
+
+	&:hover{
+		color: $orange;
+	}
+}
+
+.table-text{
+	font-size: 14px;
+	font-family: $p-medium;
+	line-height: 26px;
+	color: $black;
+
+	&.t-header{
+		color: $lightblack;
+	}
+}
+
+.step-tab-text{
+	text-transform: uppercase;
+    font-family: $p-semibold;
+	font-size: 14px;
+	line-height: 26px;
+	color: $lightgray;
+}
+
+.section-header-text{
+	font-family: $p-regular;
+	font-size: 20px;
+	line-height: 32px;
+	color: $black;
+}
+
+.form-text{
+	font-family: $p-light;
+	font-size: 14px;
+	line-height: 26px;
+	color: $dark-gray;
+}
+
+.field-text{
+	font-family: $p-regular;
+	font-size: 14px;
+	line-height: 26px;
+	color: $black;
+}
+
+.sub-form-header-text{
+	font-weight: bold;
+	font-family: $p-medium;
+	font-size: 14px;
+	line-height: 26px;
+	color: $black;
+
+	&.regular{
+		font-family: $p-regular;
+	}
+}
+
+.simple-text{
+	font-family: $p-regular;
+	font-size: 14px;
+	line-height: 26px;
+	color: $lightgray;
+
+	&.dark{
+		color: $lightblack;
+	}
+}
+
+.dropdown-text{
+	font:{
+		family: $p-regular;
+		size: 12px;
+	}
+	line-height: 24px;
+	color: $lightgray;
+}
+
+.table-header{
+	&-sm{
+		font-size: 12px;
+		line-height: 22px;
+		font-family: $p-regular;
+		color: $lightgray;
+	}
+}
+
+.add-text{
+	text-transform: uppercase;
+	font-family: $p-semibold;
+	font-size: 14px;
+	line-height: 26px;
+}
+
+.label-text{
+	font-family: $p-regular;
+	font-size: 14px;
+	line-height: 26px;
+	color: $lightblack;
+}
+
+.link-text{
+	text-transform: uppercase;
+	color: $blue;
+	font-size: 12px;
+	line-height: 24px;
+	font-family: $p-semibold;
+
+	&.big{
+		font-family: $p-medium;
+		font-size: 16px;
+		line-height: 28px;
+		text-transform: none;
+
+		&:hover, &:active, &:focus{
+			color: $blue;
+		}
+	}
+}
+
+.form-link-text{
+    color: #333;
+    font-size: 14px;
+    line-height: 26px;
+	font-family: $p-regular;
+}
+
+.sm-text{
+	font-size: 12px;
+	line-height: 24px;
+	color: $lightblack;
+	font-family: $p-regular;
+}
+/*--------END: Text styles--------*/
+
+/*END: Font styles*/

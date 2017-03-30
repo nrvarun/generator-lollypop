@@ -1,0 +1,33 @@
+#ui-datepicker-div {
+    margin-bottom: 15px;
+}
+
+.ui-datepicker .ui-datepicker-header,
+.ui-state-default {
+    background-color: #ffffff !important;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+    background-color: #1ab1f7 !important;
+}
+
+.form-datepicker {
+    position: absolute;
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    color: #999;
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+}
+

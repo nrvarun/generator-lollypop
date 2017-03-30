@@ -1,0 +1,68 @@
+/*Color styles*/
+
+$black: #333333;
+$gray-2: #999;
+
+$orange: #ff6600;
+$yellow: #fabb23;
+$green: #41c22c;
+$brightred: #ff0000;
+$blue: #1ab1f7;
+$turquoise: #04e1a5;
+$gray: #cccccc;
+$dark-gray: #494949;
+$icon-gray: #d6d6d6;
+$border-gray: #e4e4e4;
+$lighter-gray: #fafafa;
+$lighter-gray-2: #f5f5f5;
+$white: #fff;
+
+$border-line: #f2f2f2;
+$border-line-2: #ddd;
+
+$lightblack: #666666;
+
+$lightblue: #1ab1f7;
+
+$lightgray: #999999;
+
+
+
+
+/*END: Color styles*/
+a{
+	display: block;
+	text-decoration: none;
+
+	&:hover{
+		text-decoration: none !important;
+	}
+}
+
+/*Other styles*/
+
+*{
+	outline: none !important;
+}
+
+ul, li{
+	list-style: none;
+	padding: 0;
+}
+
+/*END: Other styles*/
+
+.caps{
+	text-transform: uppercase;
+}
+
+textarea{
+	resize: none;
+}
+
+/*Remove the following styles after adding reset.css file*/
+body{
+	margin: 0;
+	//background: $lighter-gray !important;
+}
+/*END: Remove the following styles after adding reset.css file*/
