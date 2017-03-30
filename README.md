@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/nrvarun/generator-lollypop.svg?branch=master)](https://travis-ci.org/nrvarun/generator-lollypop)
-
 [![Coverage Status](https://coveralls.io/repos/github/nrvarun/generator-lollypop/badge.svg?branch=master)](https://coveralls.io/github/nrvarun/generator-lollypop?branch=master)
 
 Yeoman `Lollypop` generator
