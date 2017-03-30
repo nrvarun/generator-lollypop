@@ -23,7 +23,7 @@ yo lollypop
 ## Running Tasks
 
 ```sh
-gulp server for browsersync + jade + SASS
+gulp serve - browsersync + jade + SASS
 ```
 
 ## Contributing
@@ -33,7 +33,7 @@ If you want to contribute, open an issue and/or submit a pull request.
 ## License
 
 ISC License (ISC)
-Copyright (c) 2016, Jonathan Apodaca <jrapodaca@gmail.com>
+Copyright (c) 2016, Varun N R <jrapodaca@gmail.com>
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
