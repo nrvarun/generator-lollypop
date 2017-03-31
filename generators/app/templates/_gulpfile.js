@@ -3,8 +3,6 @@ var gulp              = require('gulp');
 var gutil             = require('gulp-util');
 var browserSync       = require('browser-sync');
 var sass              = require('gulp-sass');
-var postcss           = require('gulp-postcss');
-var uncss             = require('gulp-uncss');
 var autoprefixer      = require('autoprefixer');
 var rename            = require('gulp-rename');
 var imagemin          = require('gulp-imagemin');
@@ -66,12 +64,13 @@ gulp.task('jade', function(){
 gulp.task('sass', function () {
   return gulp.src('./src/css/main.scss')
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('copy_js', function(){
-	gulp.src('src/js/*.js').pipe(gulp.dest('dist/js/'))
+	gulp.src('src/js/**/*.js').pipe(gulp.dest('dist/js/'))
 });
 
 gulp.task('copy_img', function(){
