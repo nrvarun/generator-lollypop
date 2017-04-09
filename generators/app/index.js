@@ -7,6 +7,18 @@ module.exports = yeoman.generators.Base.extend({
   //Configurations will be loaded here.
   //Ask for user input
   prompting: function() {
+
+    if (!this.options['skip-welcome-message']) {
+      
+      this.log(
+          yosay('\'Allo \'allo! Out of the box I have included '+ 
+                chalk.green('Bootstrap 3,') + '\n' +
+                chalk.green('jQuery,') + '\n' +
+                chalk.green('Jade,') + '\n' +
+                chalk.green('Gulp') + '\n' +
+                'to build our app.'));
+    }
+
     var done = this.async();
     
     this.prompt({
@@ -17,6 +29,7 @@ module.exports = yeoman.generators.Base.extend({
       default: this.appname
     }, function(answers) {
       this.props = answers;
+      this.projectName = answers.projectName || this.appname;
       this.log(answers.name);
       done();
     }.bind(this));
@@ -59,7 +72,9 @@ module.exports = yeoman.generators.Base.extend({
       // Public/
       this.fs.copy(
         this.templatePath('_src/_index.jade'),
-        this.destinationPath('src/index.jade')
+        this.destinationPath('src/index.jade'),{ 
+          title: 'Templating with Yeoman' 
+        }
       );
       this.fs.copy(
         this.templatePath('_src/_jade/**/*.jade'),
