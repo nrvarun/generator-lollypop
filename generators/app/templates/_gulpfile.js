@@ -38,7 +38,7 @@ gulp.task('serve', function () {
     /**
      * Watch for all other changes, reload the whole page
      */
-    gulp.watch(["src/index.jade", "./jade/**/*.jade"], function () {
+    gulp.watch(["src/index.jade", "./src/jade/**/*.jade"], function () {
       reload();
     });
   })
