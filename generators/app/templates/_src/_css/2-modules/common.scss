@@ -1,8 +1,23 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 h1 {
     color: indianred;
+}
+
+main {
+    height: 93.5vh;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    box-shadow: 1px 1px 2px grey;
+    width: 100vw;
+    background-color: indianred;
+    color: #ffffff;
 }
