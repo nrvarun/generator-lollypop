@@ -84,7 +84,7 @@ gulp.task('copy_img', function(){
 });
 
 gulp.task('copy_fonts', function(){
-	gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts/'))
+	gulp.src('src/fonts/**/*.*').pipe(gulp.dest('dist/fonts/'))
 });
 
 gulp.task('prod',['jade','sass','imagemin','copy_fonts','copy_js'], function(){
