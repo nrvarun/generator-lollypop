@@ -32,13 +32,19 @@ gulp.task('serve', function () {
     /**
      * Watch for scss changes, tell BrowserSync to refresh main.css
      */
-    gulp.watch(["./src/css/**/*.scss"], function () {
-      reload("./src/css/main.css", {stream: true});
+    gulp.watch(["src/css/**/*.scss"], function () {
+      reload("src/css/main.css", {stream: true});
     });
     /**
-     * Watch for all other changes, reload the whole page
+     * Watch for Jade file changes, reload the whole page
      */
     gulp.watch(["src/index.jade", "src/jade/**/*.jade"], function () {
+      reload();
+    });
+    /**
+     * Watch for Js file changes, reload the whole page
+     */
+    gulp.watch(["src/js/**/*.js"], function () {
       reload();
     });
   })
@@ -78,7 +84,7 @@ gulp.task('copy_img', function(){
 });
 
 gulp.task('copy_fonts', function(){
-	gulp.src('src/fonts/*').pipe(gulp.dest('dist/fonts/'))
+	gulp.src('src/fonts/**/*.*').pipe(gulp.dest('dist/fonts/'))
 });
 
 gulp.task('prod',['jade','sass','imagemin','copy_fonts','copy_js'], function(){

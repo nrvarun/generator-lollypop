@@ -1,22 +1,10 @@
-//background image position
-@mixin bgimages($size, $height){
-	background-size: $size;
-	height: $height;
-}	
-
 @mixin font-style( $fnt-family, $fnt-size, $color){
 	font-family: $fnt-family;
 	font-size: $fnt-size;
 	color: $color;
 }
+
 @mixin padding-spacing($top, $bottom){
 	padding-top: $top;
 	padding-bottom: $bottom;
-}
-@mixin flex {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
 }
