@@ -37,6 +37,7 @@ module.exports = yeoman.generators.Base.extend({
 
   //Writing Logic here
   writing: {
+    
     //Copy the configuration files
     config: function() {
       this.fs.copyTpl(
