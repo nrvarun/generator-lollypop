@@ -1,10 +1,13 @@
 doctype html
 html(lang='en')
 
-	- var page_name = "404 - Oops page not found!"
-    
-    include jade/base/header.jade
+	- var page_name = "404"
+
+	include jade/base/header.jade
 	+header(page_name)
 
-    body
-        h1 404 - oops page not found :(
+	body
+		main
+			include jade/components/404message.jade
+	
+	include jade/base/footer.jade
