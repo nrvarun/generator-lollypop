@@ -78,6 +78,12 @@ module.exports = yeoman.generators.Base.extend({
         }
       );
       this.fs.copy(
+        this.templatePath('_src/_404.jade'),
+        this.destinationPath('src/404.jade'),{ 
+          title: 'Templating with Yeoman' 
+        }
+      );
+      this.fs.copy(
         this.templatePath('_src/_jade/**/*.jade'),
         this.destinationPath('src/jade')
       );
