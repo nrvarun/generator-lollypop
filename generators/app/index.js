@@ -84,6 +84,10 @@ module.exports = yeoman.generators.Base.extend({
         }
       );
       this.fs.copy(
+        this.templatePath('_src/.htaccess'),
+        this.destinationPath('src/.htaccess')
+      );
+      this.fs.copy(
         this.templatePath('_src/_jade/**/*.jade'),
         this.destinationPath('src/jade')
       );
