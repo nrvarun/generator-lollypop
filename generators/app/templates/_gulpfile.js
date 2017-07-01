@@ -10,6 +10,7 @@ var jade              = require('gulp-jade');
 var harp              = require('harp');
 var cssmin            = require('gulp-cssmin');
 var rename            = require('gulp-rename');
+var sourcemaps        = require('gulp-sourcemaps');
 
 var reload            = browserSync.reload;
 
@@ -38,7 +39,7 @@ gulp.task('serve', function () {
     /**
      * Watch for Jade file changes, reload the whole page
      */
-    gulp.watch(["src/index.jade", "src/jade/**/*.jade"], function () {
+    gulp.watch(["src/*.jade", "src/jade/**/*.jade"], function () {
       reload();
     });
     /**
@@ -69,9 +70,11 @@ gulp.task('jade', function(){
 //Convert .scss file to .css
 gulp.task('sass', function () {
   return gulp.src('./src/css/main.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cssmin())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist/css'));
 });
 

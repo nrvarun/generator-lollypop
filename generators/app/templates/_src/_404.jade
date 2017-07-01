@@ -1,0 +1,13 @@
+doctype html
+html(lang='en')
+
+	- var page_name = "404"
+
+	include jade/base/header.jade
+	+header(page_name)
+
+	body
+		main
+			include jade/components/404message.jade
+	
+	include jade/base/footer.jade

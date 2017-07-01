@@ -37,6 +37,7 @@ module.exports = yeoman.generators.Base.extend({
 
   //Writing Logic here
   writing: {
+    
     //Copy the configuration files
     config: function() {
       this.fs.copyTpl(
@@ -75,6 +76,16 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('src/index.jade'),{ 
           title: 'Templating with Yeoman' 
         }
+      );
+      this.fs.copy(
+        this.templatePath('_src/_404.jade'),
+        this.destinationPath('src/404.jade'),{ 
+          title: 'Templating with Yeoman' 
+        }
+      );
+      this.fs.copy(
+        this.templatePath('_src/.htaccess'),
+        this.destinationPath('src/.htaccess')
       );
       this.fs.copy(
         this.templatePath('_src/_jade/**/*.jade'),
